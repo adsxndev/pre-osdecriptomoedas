@@ -90,8 +90,8 @@ EXCHANGE_URLS = {
         "futures": "https://www.binance.com/pt-BR/futures/{symbol}USDT"
     },
     "Bitget": {
-        "spot": "https://www.bitget.com/pt-BR/spot/{symbol}_USDT",
-        "futures": "https://www.bitget.com/pt-BR/mix/usdt/{symbol}_UMCBL"
+        "spot": "https://www.bitget.com/pt/spot/{symbol}USDT",
+        "futures": "https://www.bitget.com/pt/mix/usdt/{symbol}_UMCBL"
     },
     "Bybit": {
         "spot": "https://www.bybit.com/pt-BR/trade/spot/{symbol}/USDT",
