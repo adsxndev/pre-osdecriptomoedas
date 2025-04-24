@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}" data-theme="{{ current_theme }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ translations.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ translations.title }}</h1>
+            <div class="settings">
+                <div class="language-selector">
+                    <button id="language-button" class="dropdown-button">
+                        <span class="globe-icon">🌐</span>
+                        {% if current_lang == 'pt' %}Português{% elif current_lang == 'en' %}English{% else %}Español{% endif %}
+                        <span class="arrow-icon">▼</span>
+                    </button>
+                    <div id="language-dropdown" class="dropdown-content">
+                        <a href="{{ url_for('set_language', lang='pt') }}" {% if current_lang == 'pt' %}class="active"{% endif %}>Português</a>
+                        <a href="{{ url_for('set_language', lang='en') }}" {% if current_lang == 'en' %}class="active"{% endif %}>English</a>
+                        <a href="{{ url_for('set_language', lang='es') }}" {% if current_lang == 'es' %}class="active"{% endif %}>Español</a>
+                    </div>
+                </div>
+                
+                <div class="theme-toggle">
+                    <span>{{ translations.theme }}:</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="theme-switch" {% if current_theme == 'dark' %}checked{% endif %}>
+                        <label for="theme-switch">
+                            <span class="toggle-icon light">☀️</span>
+                            <span class="toggle-icon dark">🌙</span>
+                            <span class="toggle-ball"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="selector-container">
+            <h2>{{ translations.select_crypto }}</h2>
+            <div class="form-group">
+                <label for="symbol-select">{{ translations.crypto_pair }}</label>
+                <select id="symbol-select">
+                    <option value="BTCUSDT">{{ translations.bitcoin }}</option>
+                    <option value="ETHUSDT">{{ translations.ethereum }}</option>
+                    <option value="BNBUSDT">{{ translations.binance }}</option>
+                    <option value="SOLUSDT">{{ translations.solana }}</option>
+                    <option value="XRPUSDT">{{ translations.ripple }}</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="custom-symbol">{{ translations.custom_pair }}</label>
+                <input type="text" id="custom-symbol" placeholder="e.g., DOGEUSDT">
+            </div>
+            
+            <button id="compare-button">{{ translations.compare }}</button>
+        </div>
+        
+        <div class="results-container">
+            <div class="results-header">
+                <div>
+                    <h2 id="symbol-title">BTCUSDT</h2>
+                    <p id="last-updated">{{ translations.last_updated }} -</p>
+                </div>
+                <div class="view-controls">
+                    <button id="refresh-button" title="{{ translations.compare }}">↻</button>
+                </div>
+            </div>
+            
+            <div id="loading-indicator">{{ translations.loading }}</div>
+            <div id="error-message" class="hidden">{{ translations.error }}</div>
+            
+            <div id="tables-container">
+                <div class="table-section">
+                    <h3>{{ translations.spot_price }}</h3>
+                    <div id="spot-table-view" class="table-view">
+                        <table id="spot-price-table" class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>{{ translations.exchange }}</th>
+                                    <th>{{ translations.spot_price }}</th>
+                                    <th>{{ translations.difference }}</th>
+                                </tr>
+                            </thead>
+                            <tbody id="spot-price-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="table-section">
+                    <h3>{{ translations.futures_price }}</h3>
+                    <div id="futures-table-view" class="table-view">
+                        <table id="futures-price-table" class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>{{ translations.exchange }}</th>
+                                    <th>{{ translations.futures_price }}</th>
+                                    <th>{{ translations.difference }}</th>
+                                </tr>
+                            </thead>
+                            <tbody id="futures-price-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Passar as traduções para o JavaScript
+        const translations = {{ translations|tojson }};
+        const currentLang = "{{ current_lang }}";
+        const currentTheme = "{{ current_theme }}";
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
