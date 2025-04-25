@@ -28,7 +28,8 @@ translations = {
         'ethereum': 'Ethereum (ETH/USDT)',
         'binance': 'Binance Coin (BNB/USDT)',
         'solana': 'Solana (SOL/USDT)',
-        'ripple': 'Ripple (XRP/USDT)',
+        'lai': 'Lai (LAI/USDT)',
+        'magic': 'Magic (MAGIC/USDT)',
         'theme': 'Tema',
         'light': 'Claro',
         'dark': 'Escuro'
@@ -52,7 +53,8 @@ translations = {
         'ethereum': 'Ethereum (ETH/USDT)',
         'binance': 'Binance Coin (BNB/USDT)',
         'solana': 'Solana (SOL/USDT)',
-        'ripple': 'Ripple (XRP/USDT)',
+        'lai': 'Lai (LAI/USDT)',
+        'magic': 'Magic (MAGIC/USDT)',
         'theme': 'Theme',
         'light': 'Light',
         'dark': 'Dark'
@@ -76,7 +78,8 @@ translations = {
         'ethereum': 'Ethereum (ETH/USDT)',
         'binance': 'Binance Coin (BNB/USDT)',
         'solana': 'Solana (SOL/USDT)',
-        'ripple': 'Ripple (XRP/USDT)',
+        'lai': 'Lai (LAI/USDT)',
+        'magic': 'Magic (MAGIC/USDT)',
         'theme': 'Tema',
         'light': 'Claro',
         'dark': 'Oscuro'
@@ -90,7 +93,7 @@ EXCHANGE_URLS = {
         "futures": "https://www.binance.com/pt-BR/futures/{symbol}USDT"
     },
     "Bitget": {
-        "spot": "https://www.bitget.com/pt/spot/{symbol}USDT",
+        "spot": "https://www.bitget.com/pt/spot/{symbol}_USDT",
         "futures": "https://www.bitget.com/pt/mix/usdt/{symbol}_UMCBL"
     },
     "Bybit": {
